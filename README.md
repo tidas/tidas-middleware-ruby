@@ -1,8 +1,9 @@
 # tidas-ruby
-middleware for tidas integrations
-
+[![Build Status](https://travis-ci.org/tidas/tidas-middleware-ruby.svg?branch=master)](https://travis-ci.org/tidas/tidas-middleware-ruby)
 [![Code Climate](https://codeclimate.com/github/tidas/tidas-middleware-ruby/badges/gpa.svg)](https://codeclimate.com/github/tidas/tidas-middleware-ruby)
 [![Test Coverage](https://codeclimate.com/github/tidas/tidas-middleware-ruby/badges/coverage.svg)](https://codeclimate.com/github/tidas/tidas-middleware-ruby/coverage)
+
+middleware for tidas integrations
 
 ## Configuration
 
