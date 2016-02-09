@@ -3,7 +3,7 @@
 [![Code Climate](https://codeclimate.com/github/tidas/tidas-middleware-ruby/badges/gpa.svg)](https://codeclimate.com/github/tidas/tidas-middleware-ruby)
 [![Test Coverage](https://codeclimate.com/github/tidas/tidas-middleware-ruby/badges/coverage.svg)](https://codeclimate.com/github/tidas/tidas-middleware-ruby/coverage)
 
-middleware for tidas integrations
+Middleware for tidas integrations
 
 ## Configuration
 
@@ -15,8 +15,6 @@ Configuration Params:
 * **api_key**: `<Tidas::Configuration.api_key>` The API key you use to authenticate your requests to our backend
 * **application**: `<Tidas::Configuration.application>` The application identifier you use to silo your users within our database
 * **timeout**: `<Tidas::Configuration.timeout>` If our default of 20s is too long a timeout for you, optionally set a shorter one for your implementation
-
-***
 
 ## API v0.1
 
@@ -35,8 +33,6 @@ Returns:
 * **Bad Request**: `<Tidas::ErrorResult>` ErrorResult explaining what happened
 * **Timeout**: `<Tidas::TimeoutError>` Timeout Error Object
 * **50x**: `<Tidas::ServerError>` Server Error Object
-
-***
 
 #### Configure Tidas ####
 
@@ -65,8 +61,6 @@ Example:
     timeout: 1
   )
 ```
-
-***
 
 #### Enroll Identity ####
 
@@ -99,8 +93,6 @@ Tidas::Identity.enroll(
 )
 ```
 
-***
-
 #### Validate Data####
 
 This call is used to validate data using a provided hash, signature, and a stored public key from our database. The call works by looking up a user with the provided tidas_id, then validating that the data provided was signed with that users' public key. Upon successful validation, the data is made available in the `SuccessfulResult` object.
@@ -121,8 +113,6 @@ Examples:
 
 `Tidas::Identity.validate(data:<Tidas::ValidationData>, tidas_id:"e_23423")`
 
-***
-
 #### Deactivate User####
 
 This call is used to deactivate users which you no longer wish to validate data from. Users are not deleted, but made inactive in case they decide to use the application again
@@ -141,8 +131,6 @@ Returns:
 Examples:
 
 `Tidas::Identity.deactivate(tidas_id:'24jdpoifj24')`
-
-***
 
 #### Activate User####
 
@@ -163,8 +151,6 @@ Examples:
 
 `Tidas::Identity.activate(tidas_id:'24jdpoifj24')`
 
-***
-
 #### List Users####
 
 This call is used to list users of your application, both active and deactivated. public keys are trimmed for brevity, but the accompanying `get(<tidas_id>)` method will return this info if you ask for a specific user's information
@@ -183,8 +169,6 @@ Returns:
 Examples:
 
 `Tidas::Identity.index`
-
-***
 
 #### Get User Info####
 
@@ -206,8 +190,6 @@ Examples:
 
 `Tidas::Identity.get('24jdpoifj24')`
 
-
-***
 
 ## Tidas Error Types
 
