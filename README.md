@@ -1,6 +1,9 @@
 # tidas-ruby
 middleware for tidas integrations
 
+[![Code Climate](https://codeclimate.com/github/tidas/tidas-middleware-ruby/badges/gpa.svg)](https://codeclimate.com/github/tidas/tidas-middleware-ruby)
+[![Test Coverage](https://codeclimate.com/github/tidas/tidas-middleware-ruby/badges/coverage.svg)](https://codeclimate.com/github/tidas/tidas-middleware-ruby/coverage)
+
 ## Configuration
 
 Tidas is configured either with preset ENVs, or with a configuration method explained in the API below
