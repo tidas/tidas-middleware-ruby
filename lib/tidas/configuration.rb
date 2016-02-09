@@ -57,8 +57,8 @@ module Tidas
     end
 
     def self.timeout
-      if timeout = @timeout
-        timeout.to_i
+      if @timeout
+        @timeout.to_i
       else
         20
       end
