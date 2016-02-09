@@ -8,8 +8,6 @@ engines:
     enabled: true
   bundler-audit:
     enabled: true
-  fixme:
-    enabled: true
 
 ratings:
    paths:
