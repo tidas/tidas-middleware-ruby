@@ -1,4 +1,5 @@
 require 'base64'
+require 'digest'
 
 module Tidas
   module Utilities
@@ -80,11 +81,37 @@ module Tidas
         type_byte + len_bytes + data_to_sign
       end
 
+      def timestamp_hex
+        begin
+          epoch_time = @parsed_data[:timestamp].to_i
+          return [epoch_time].pack('q<')
+        rescue
+          return []
+        end
+      end
+
+      def computed_hash_bytes
+        Digest::SHA1.digest(@parsed_data[:data_to_sign]+timestamp_hex).bytes
+      end
+
+      def provided_hash_bytes
+        @parsed_data[:data_hash].bytes
+      end
+
+      def data_matches_hash?
+        begin
+          return computed_hash_bytes == provided_hash_bytes
+        rescue
+          return false
+        end
+      end
+
       def valid?
         return false if @parsed_data[:platform]   == nil
         return false if @parsed_data[:timestamp]  == nil
         return false if @parsed_data[:data_hash]  == nil
         return false if @parsed_data[:signature]  == nil
+        return false unless data_matches_hash?
         true
       end
 
